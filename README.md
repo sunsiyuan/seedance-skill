@@ -44,6 +44,8 @@ Paid from your HaryAI balance per second of video. Seedance 2.5 at 720p is $0.20
 ## Related
 
 - [seedance-2.5-api](https://github.com/sunsiyuan/seedance-2.5-api): the API itself, curl examples, Q&A
+- [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
+- [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai): the same in n8n (npm `n8n-nodes-haryai`)
 - [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
 - API reference: [docs/video.md](https://haryai.com/docs/video.md)
 

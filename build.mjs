@@ -58,6 +58,8 @@ Paid from your HaryAI balance per second of video. Seedance 2.5 at 720p is $${fu
 ## Related
 
 - [seedance-2.5-api](https://github.com/sunsiyuan/seedance-2.5-api): the API itself, curl examples, Q&A
+- [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
+- [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai): the same in n8n (npm \`n8n-nodes-haryai\`)
 - [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
 - API reference: [docs/video.md](https://haryai.com/docs/video.md)
 
@@ -110,6 +112,8 @@ node ~/.claude/skills/seedance/scripts/seedance.mjs --task <id>    # 接着查�
 ## 相关
 
 - [seedance-2.5-api](https://github.com/sunsiyuan/seedance-2.5-api)：接口本身、curl 示例和常见问题
+- [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui)：在 ComfyUI 里用（ComfyUI Manager 里能搜到）
+- [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai)：在 n8n 里用（npm 包 \`n8n-nodes-haryai\`）
 - [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code)：在 Codex 和 Claude Code 里用 DeepSeek V4
 - 接口文档：[docs/video.md](https://haryai.com/docs/video.md)
 
