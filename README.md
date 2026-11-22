@@ -47,6 +47,7 @@ Paid from your HaryAI balance per second of video. Seedance 2.5 at 720p is $0.20
 - [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
 - [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai): the same in n8n (npm `n8n-nodes-haryai`)
 - [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
+- [nano-banana-api](https://github.com/sunsiyuan/nano-banana-api): Nano Banana 2.1 and 2 through the OpenAI images API or Gemini's own format
 - API reference: [docs/video.md](https://haryai.com/docs/video.md)
 
-MIT. Prices as of 2026-11-20.
+MIT. Prices as of 2026-11-22.
