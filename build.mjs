@@ -9,6 +9,7 @@ const share = Number(llms.match(/at (\d+)% of BytePlus's official price/)[1]);
 const sec = (model, res) => llms.split("\n").find((l) => l.includes(`(${model})`)).match(new RegExp(`${res} \\$([\\d.]+)`))[1];
 const full720 = sec("dreamina-seedance-2-5-260628", "720p");
 const flash480 = sec("dreamina-seedance-2-5-flash-261115", "480p");
+const still1k = llms.split("\n").find((l) => l.includes("(gemini-nano-banana-2.1)")).match(/1K \$([\d.]+)/)[1];
 const utm = (path) => `https://haryai.com${path}?utm_source=github&utm_medium=readme&utm_campaign=seedance-skill`;
 const today = new Date().toISOString().slice(0, 10);
 
@@ -41,7 +42,9 @@ Node 18 or later. No other dependencies.
 
 ## Use
 
-Ask the agent, for example: "Make a 5 second vertical clip of a cat chasing a laser pointer, with sound." It shows the model, length and approximate price before submitting, and saves the file to \`./out\`.
+Ask the agent, for example: "Make a 5 second vertical clip of a cat chasing a laser pointer, with sound." It shows the model, length and estimated price and waits for your yes before submitting (a confirmation card in Claude Code), then saves the file to \`./out\`.
+
+When the look matters, a person or a product, it first makes the opening frame as a still with Nano Banana 2.1 (about $${still1k} an image) and asks you to approve it, so you don't pay for a clip to find out the face is wrong. Several clips can continue one another: each starts from the previous clip's last frame (needs ffmpeg).
 
 The script also works on its own:
 
@@ -49,6 +52,8 @@ The script also works on its own:
 node ~/.claude/skills/seedance/scripts/seedance.mjs "A paper boat sailing down a rain gutter, close up" --duration 5 --ratio 9:16
 node ~/.claude/skills/seedance/scripts/seedance.mjs "She turns and smiles" --first frame.jpg --flash --resolution 480p
 node ~/.claude/skills/seedance/scripts/seedance.mjs --task <id>    # resume
+node ~/.claude/skills/seedance/scripts/seedance.mjs "She turns and smiles" --first frame.jpg --estimate   # price only, nothing submitted
+node ~/.claude/skills/seedance/scripts/keyframe.mjs "A woman in a yellow raincoat on a city street, 9:16" --ratio 9:16   # a still for the first frame
 \`\`\`
 
 ## Cost
@@ -96,7 +101,9 @@ export HARYAI_KEY=...
 
 ## 使用
 
-直接跟 agent 说，比如："做一段 5 秒的竖屏视频，一只猫追激光笔，要有声音。" 它提交前会先告诉你用哪个模型、多长、大概多少钱，做好的视频存在 \`./out\`。
+直接跟 agent 说，比如："做一段 5 秒的竖屏视频，一只猫追激光笔，要有声音。" 它提交前会先告诉你用哪个模型、多长、大概多少钱，等你确认了才提交（在 Claude Code 里是一张确认卡），做好的视频存在 \`./out\`。
+
+画面要紧的镜头，比如人物或者商品，它会先用 Nano Banana 2.1 出一张首帧图（一张大约 $${still1k}）给你确认，免得花一段视频的钱才发现脸不对。几段视频可以接起来：每段从上一段的最后一帧开始（需要 ffmpeg）。
 
 脚本也可以单独用：
 
@@ -104,6 +111,8 @@ export HARYAI_KEY=...
 node ~/.claude/skills/seedance/scripts/seedance.mjs "雨夜的霓虹小巷，一把红伞慢慢走过" --duration 5 --ratio 9:16
 node ~/.claude/skills/seedance/scripts/seedance.mjs "她转过身笑了" --first frame.jpg --flash --resolution 480p
 node ~/.claude/skills/seedance/scripts/seedance.mjs --task <id>    # 接着查之前提交的任务
+node ~/.claude/skills/seedance/scripts/seedance.mjs "她转过身笑了" --first frame.jpg --estimate   # 只估价，不提交
+node ~/.claude/skills/seedance/scripts/keyframe.mjs "城市街头穿黄色雨衣的女人，竖构图" --ratio 9:16   # 先出一张首帧图
 \`\`\`
 
 ## 费用

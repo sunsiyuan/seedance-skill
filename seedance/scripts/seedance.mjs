@@ -15,6 +15,7 @@
 //   --last <img>            last frame
 //   --ref <img>             reference image, repeatable (keeps a character or product)
 //   --out <dir>             default ./out
+//   --estimate              print the model, length and estimated price, then stop (nothing is submitted)
 //   --yes                   skip the price line's 3 second pause
 // Key: HARYAI_KEY. API reference: https://haryai.com/docs/video.md
 
@@ -37,7 +38,7 @@ const words = [];
 const argv = process.argv.slice(2);
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
-  if (a === "--flash" || a === "--audio" || a === "--yes") o[a.slice(2)] = true;
+  if (a === "--flash" || a === "--audio" || a === "--yes" || a === "--estimate") o[a.slice(2)] = true;
   else if (a === "--ref") o.ref.push(argv[++i]);
   else if (a.startsWith("--")) o[a.slice(2)] = argv[++i];
   else words.push(a);
@@ -96,7 +97,8 @@ if (!id) {
   const body = { model, content, duration: Number(o.duration), resolution: o.resolution, ratio: o.ratio, generate_audio: !!o.audio };
 
   const p = await pricePerSecond(model, o.resolution);
-  console.log(`${o.flash ? "Seedance 2.5 Flash" : "Seedance 2.5"}, ${o.duration} s, ${o.resolution} ${o.ratio}${p ? `, about $${(p * o.duration).toFixed(2)} (16:9 price)` : ""}`);
+  console.log(`${o.flash ? "Seedance 2.5 Flash" : "Seedance 2.5"}, ${o.duration} s, ${o.resolution} ${o.ratio}${p ? `, about $${(p * o.duration + 1e-9).toFixed(2)} (16:9 price)` : ""}`);
+  if (o.estimate) process.exit(0);
   if (!o.yes) await sleep(3);
 
   const res = await fetch(`${BASE}/contents/generations/tasks`, { method: "POST", headers, body: JSON.stringify(body) });

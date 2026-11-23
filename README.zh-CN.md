@@ -27,7 +27,9 @@ export HARYAI_KEY=...
 
 ## 使用
 
-直接跟 agent 说，比如："做一段 5 秒的竖屏视频，一只猫追激光笔，要有声音。" 它提交前会先告诉你用哪个模型、多长、大概多少钱，做好的视频存在 `./out`。
+直接跟 agent 说，比如："做一段 5 秒的竖屏视频，一只猫追激光笔，要有声音。" 它提交前会先告诉你用哪个模型、多长、大概多少钱，等你确认了才提交（在 Claude Code 里是一张确认卡），做好的视频存在 `./out`。
+
+画面要紧的镜头，比如人物或者商品，它会先用 Nano Banana 2.1 出一张首帧图（一张大约 $0.0168）给你确认，免得花一段视频的钱才发现脸不对。几段视频可以接起来：每段从上一段的最后一帧开始（需要 ffmpeg）。
 
 脚本也可以单独用：
 
@@ -35,6 +37,8 @@ export HARYAI_KEY=...
 node ~/.claude/skills/seedance/scripts/seedance.mjs "雨夜的霓虹小巷，一把红伞慢慢走过" --duration 5 --ratio 9:16
 node ~/.claude/skills/seedance/scripts/seedance.mjs "她转过身笑了" --first frame.jpg --flash --resolution 480p
 node ~/.claude/skills/seedance/scripts/seedance.mjs --task <id>    # 接着查之前提交的任务
+node ~/.claude/skills/seedance/scripts/seedance.mjs "她转过身笑了" --first frame.jpg --estimate   # 只估价，不提交
+node ~/.claude/skills/seedance/scripts/keyframe.mjs "城市街头穿黄色雨衣的女人，竖构图" --ratio 9:16   # 先出一张首帧图
 ```
 
 ## 费用
@@ -50,4 +54,4 @@ node ~/.claude/skills/seedance/scripts/seedance.mjs --task <id>    # 接着查�
 - [nano-banana-api](https://github.com/sunsiyuan/nano-banana-api)：用 OpenAI 图片接口或 Gemini 原生格式调 Nano Banana 2.1 和 2
 - 接口文档：[docs/video.md](https://haryai.com/docs/video.md)
 
-MIT 许可。价格截至 2026-11-22。
+MIT 许可。价格截至 2026-11-23。

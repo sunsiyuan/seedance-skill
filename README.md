@@ -27,7 +27,9 @@ Node 18 or later. No other dependencies.
 
 ## Use
 
-Ask the agent, for example: "Make a 5 second vertical clip of a cat chasing a laser pointer, with sound." It shows the model, length and approximate price before submitting, and saves the file to `./out`.
+Ask the agent, for example: "Make a 5 second vertical clip of a cat chasing a laser pointer, with sound." It shows the model, length and estimated price and waits for your yes before submitting (a confirmation card in Claude Code), then saves the file to `./out`.
+
+When the look matters, a person or a product, it first makes the opening frame as a still with Nano Banana 2.1 (about $0.0168 an image) and asks you to approve it, so you don't pay for a clip to find out the face is wrong. Several clips can continue one another: each starts from the previous clip's last frame (needs ffmpeg).
 
 The script also works on its own:
 
@@ -35,6 +37,8 @@ The script also works on its own:
 node ~/.claude/skills/seedance/scripts/seedance.mjs "A paper boat sailing down a rain gutter, close up" --duration 5 --ratio 9:16
 node ~/.claude/skills/seedance/scripts/seedance.mjs "She turns and smiles" --first frame.jpg --flash --resolution 480p
 node ~/.claude/skills/seedance/scripts/seedance.mjs --task <id>    # resume
+node ~/.claude/skills/seedance/scripts/seedance.mjs "She turns and smiles" --first frame.jpg --estimate   # price only, nothing submitted
+node ~/.claude/skills/seedance/scripts/keyframe.mjs "A woman in a yellow raincoat on a city street, 9:16" --ratio 9:16   # a still for the first frame
 ```
 
 ## Cost
@@ -50,4 +54,4 @@ Paid from your HaryAI balance per second of video. Seedance 2.5 at 720p is $0.20
 - [nano-banana-api](https://github.com/sunsiyuan/nano-banana-api): Nano Banana 2.1 and 2 through the OpenAI images API or Gemini's own format
 - API reference: [docs/video.md](https://haryai.com/docs/video.md)
 
-MIT. Prices as of 2026-11-22.
+MIT. Prices as of 2026-11-23.
