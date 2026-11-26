@@ -26,7 +26,7 @@ What it can do: text to video, a first frame and a last frame, reference images 
 Claude Code:
 
 \`\`\`sh
-git clone https://github.com/sunsiyuan/seedance-skill /tmp/seedance-skill
+git clone https://github.com/haryai-com/seedance-skill /tmp/seedance-skill
 cp -r /tmp/seedance-skill/seedance ~/.claude/skills/
 \`\`\`
 
@@ -62,11 +62,11 @@ Paid from your HaryAI balance per second of video. Seedance 2.5 at 720p is $${fu
 
 ## Related
 
-- [seedance-2.5-api](https://github.com/sunsiyuan/seedance-2.5-api): the API itself, curl examples, Q&A
-- [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
-- [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai): the same in n8n (npm \`n8n-nodes-haryai\`)
-- [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
-- [nano-banana-api](https://github.com/sunsiyuan/nano-banana-api): Nano Banana 2.1 and 2 through the OpenAI images API or Gemini's own format
+- [seedance-2.5-api](https://github.com/haryai-com/seedance-2.5-api): the API itself, curl examples, Q&A
+- [seedance-comfyui](https://github.com/haryai-com/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
+- [n8n-nodes-haryai](https://github.com/haryai-com/n8n-nodes-haryai): the same in n8n (npm \`n8n-nodes-haryai\`)
+- [deepseek-codex-claude-code](https://github.com/haryai-com/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
+- [nano-banana-api](https://github.com/haryai-com/nano-banana-api): Nano Banana 2.1 and 2 through the OpenAI images API or Gemini's own format
 - API reference: [docs/video.md](https://haryai.com/docs/video.md)
 
 MIT. Prices as of ${today}.
@@ -85,7 +85,7 @@ const zh = `# Claude Code 和 Codex 用的 Seedance 2.5 skill
 Claude Code：
 
 \`\`\`sh
-git clone https://github.com/sunsiyuan/seedance-skill /tmp/seedance-skill
+git clone https://github.com/haryai-com/seedance-skill /tmp/seedance-skill
 cp -r /tmp/seedance-skill/seedance ~/.claude/skills/
 \`\`\`
 
@@ -121,11 +121,11 @@ node ~/.claude/skills/seedance/scripts/keyframe.mjs "城市街头穿黄色雨衣
 
 ## 相关
 
-- [seedance-2.5-api](https://github.com/sunsiyuan/seedance-2.5-api)：接口本身、curl 示例和常见问题
-- [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui)：在 ComfyUI 里用（ComfyUI Manager 里能搜到）
-- [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai)：在 n8n 里用（npm 包 \`n8n-nodes-haryai\`）
-- [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code)：在 Codex 和 Claude Code 里用 DeepSeek V4
-- [nano-banana-api](https://github.com/sunsiyuan/nano-banana-api)：用 OpenAI 图片接口或 Gemini 原生格式调 Nano Banana 2.1 和 2
+- [seedance-2.5-api](https://github.com/haryai-com/seedance-2.5-api)：接口本身、curl 示例和常见问题
+- [seedance-comfyui](https://github.com/haryai-com/seedance-comfyui)：在 ComfyUI 里用（ComfyUI Manager 里能搜到）
+- [n8n-nodes-haryai](https://github.com/haryai-com/n8n-nodes-haryai)：在 n8n 里用（npm 包 \`n8n-nodes-haryai\`）
+- [deepseek-codex-claude-code](https://github.com/haryai-com/deepseek-codex-claude-code)：在 Codex 和 Claude Code 里用 DeepSeek V4
+- [nano-banana-api](https://github.com/haryai-com/nano-banana-api)：用 OpenAI 图片接口或 Gemini 原生格式调 Nano Banana 2.1 和 2
 - 接口文档：[docs/video.md](https://haryai.com/docs/video.md)
 
 MIT 许可。价格截至 ${today}。

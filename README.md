@@ -11,7 +11,7 @@ What it can do: text to video, a first frame and a last frame, reference images 
 Claude Code:
 
 ```sh
-git clone https://github.com/sunsiyuan/seedance-skill /tmp/seedance-skill
+git clone https://github.com/haryai-com/seedance-skill /tmp/seedance-skill
 cp -r /tmp/seedance-skill/seedance ~/.claude/skills/
 ```
 
@@ -47,11 +47,11 @@ Paid from your HaryAI balance per second of video. Seedance 2.5 at 720p is $0.20
 
 ## Related
 
-- [seedance-2.5-api](https://github.com/sunsiyuan/seedance-2.5-api): the API itself, curl examples, Q&A
-- [seedance-comfyui](https://github.com/sunsiyuan/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
-- [n8n-nodes-haryai](https://github.com/sunsiyuan/n8n-nodes-haryai): the same in n8n (npm `n8n-nodes-haryai`)
-- [deepseek-codex-claude-code](https://github.com/sunsiyuan/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
-- [nano-banana-api](https://github.com/sunsiyuan/nano-banana-api): Nano Banana 2.1 and 2 through the OpenAI images API or Gemini's own format
+- [seedance-2.5-api](https://github.com/haryai-com/seedance-2.5-api): the API itself, curl examples, Q&A
+- [seedance-comfyui](https://github.com/haryai-com/seedance-comfyui): the same in ComfyUI (in ComfyUI Manager)
+- [n8n-nodes-haryai](https://github.com/haryai-com/n8n-nodes-haryai): the same in n8n (npm `n8n-nodes-haryai`)
+- [deepseek-codex-claude-code](https://github.com/haryai-com/deepseek-codex-claude-code): DeepSeek V4 in Codex and Claude Code
+- [nano-banana-api](https://github.com/haryai-com/nano-banana-api): Nano Banana 2.1 and 2 through the OpenAI images API or Gemini's own format
 - API reference: [docs/video.md](https://haryai.com/docs/video.md)
 
-MIT. Prices as of 2026-11-23.
+MIT. Prices as of 2026-11-26.
