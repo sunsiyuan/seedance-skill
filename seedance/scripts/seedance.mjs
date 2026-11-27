@@ -17,9 +17,10 @@
 //   --out <dir>             default ./out
 //   --estimate              print the model, length and estimated price, then stop (nothing is submitted)
 //   --yes                   skip the price line's 3 second pause
-// Key: HARYAI_KEY. API reference: https://haryai.com/docs/video.md
+// Key: HARYAI_KEY, or else the file ~/.haryai/key. API reference: https://haryai.com/docs/video.md
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { homedir } from "node:os";
 import { createWriteStream } from "node:fs";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
@@ -27,9 +28,10 @@ import { extname, join } from "node:path";
 
 const BASE = process.env.HARYAI_BASE_URL || "https://api.haryai.com/api/v3";
 const MODELS = { full: "dreamina-seedance-2-5-260628", flash: "dreamina-seedance-2-5-flash-261115" };
-const key = process.env.HARYAI_KEY;
+// Desktop apps don't read shell profiles, so the key may also be in a file.
+const key = process.env.HARYAI_KEY || (await readFile(join(homedir(), ".haryai", "key"), "utf8").catch(() => "")).trim();
 if (!key) {
-  console.error("HARYAI_KEY is not set. Get a key at https://haryai.com and run: export HARYAI_KEY=...");
+  console.error("No HaryAI key: HARYAI_KEY is not set and ~/.haryai/key doesn't exist. Get a key at https://haryai.com/en/dashboard and save it alone in ~/.haryai/key (or where your agent keeps settings, as HARYAI_KEY). Don't paste it into the chat.");
   process.exit(1);
 }
 

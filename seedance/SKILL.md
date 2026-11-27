@@ -5,7 +5,7 @@ description: Make videos with Seedance 2.5 (ByteDance's video model) through Har
 
 # Seedance 2.5
 
-`scripts/seedance.mjs` submits a task to Seedance 2.5 through HaryAI (Volcengine Ark format), waits for it and saves the mp4. It needs Node 18 or later and `HARYAI_KEY` in the environment. If the key is missing, tell the user to get one at https://haryai.com and `export HARYAI_KEY=...`; do not ask them to paste it into the chat.
+`scripts/seedance.mjs` submits a task to Seedance 2.5 through HaryAI (Volcengine Ark format), waits for it and saves the mp4. It needs Node 18 or later. The key is the environment variable `HARYAI_KEY`, or else the file `~/.haryai/key`. If neither is there, tell the user to get one on https://haryai.com/en/dashboard and save it where you keep settings (so commands see `HARYAI_KEY`) or alone in `~/.haryai/key`; do not ask them to paste it into the chat.
 
 ```sh
 node <this skill>/scripts/seedance.mjs "<prompt>" [--flash] [--duration 5] [--resolution 720p] [--ratio 16:9] [--audio] [--first img] [--last img] [--ref img] [--out out] [--estimate] [--yes]

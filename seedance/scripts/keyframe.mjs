@@ -11,16 +11,18 @@
 //   --ref <img>             reference image, repeatable (local file or URL): edit it, or keep its character or product
 //   --out <dir>             default ./out
 //   --estimate              print the estimated price, then stop
-// Key: HARYAI_KEY. API reference: https://haryai.com/docs/image.md
+// Key: HARYAI_KEY, or else the file ~/.haryai/key. API reference: https://haryai.com/docs/image.md
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { homedir } from "node:os";
 import { basename, extname, join } from "node:path";
 
 const BASE = process.env.HARYAI_OPENAI_BASE_URL || "https://api.haryai.com/v1";
 const MODEL = "gemini-nano-banana-2.1";
-const key = process.env.HARYAI_KEY;
+// Desktop apps don't read shell profiles, so the key may also be in a file.
+const key = process.env.HARYAI_KEY || (await readFile(join(homedir(), ".haryai", "key"), "utf8").catch(() => "")).trim();
 if (!key) {
-  console.error("HARYAI_KEY is not set. Get a key at https://haryai.com and run: export HARYAI_KEY=...");
+  console.error("No HaryAI key: HARYAI_KEY is not set and ~/.haryai/key doesn't exist. Get a key at https://haryai.com/en/dashboard and save it alone in ~/.haryai/key (or where your agent keeps settings, as HARYAI_KEY). Don't paste it into the chat.");
   process.exit(1);
 }
 

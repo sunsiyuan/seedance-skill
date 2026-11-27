@@ -15,15 +15,13 @@ git clone https://github.com/haryai-com/seedance-skill /tmp/seedance-skill
 cp -r /tmp/seedance-skill/seedance ~/.claude/skills/
 ```
 
-Codex：同样的做法，放进 `~/.codex/skills/`。
+Codex：同样的做法，放进 `~/.codex/skills/`。其他能加载 skill 的 Agent（Cursor、Gemini CLI、OpenCode、Hermes Agent、OpenClaw 等）：放进它读取 skill 的文件夹，很多都读 `~/.agents/skills/`。
 
-然后设好 key（在 [HaryAI 账户页](https://haryai.com/zh/dashboard?utm_source=github&utm_medium=readme&utm_campaign=seedance-skill) 复制）：
-
-```sh
-export HARYAI_KEY=...
-```
+然后把 key 交给它，key 在 [HaryAI 账户页](https://haryai.com/zh/dashboard?utm_source=github&utm_medium=readme&utm_campaign=seedance-skill) 复制。桌面应用不读 shell 配置文件里的 `export`，所以要把 key 存在 Agent 自己保存配置的地方，名字叫 `HARYAI_KEY`（Codex 是 `~/.codex/config.toml` 的 `[shell_environment_policy.set]`，Claude Code 是 `~/.claude/settings.json` 的 `env`），或者把 key 单独存成一个文本文件 `~/.haryai/key`（Windows 上是 `%USERPROFILE%\.haryai\key`，文件名后面不要带 `.txt`）。
 
 需要 Node 18 或更新版本，没有别的依赖。
+
+还想出图，或者想让 Agent 每次挑最便宜的模型？Claude Code 和 Codex 可以装 [HaryAI 插件](https://github.com/haryai-com/plugins)，两样都能做；这个 skill 只管视频。
 
 ## 使用
 

@@ -15,15 +15,13 @@ git clone https://github.com/haryai-com/seedance-skill /tmp/seedance-skill
 cp -r /tmp/seedance-skill/seedance ~/.claude/skills/
 ```
 
-Codex: the same, into `~/.codex/skills/`.
+Codex: the same, into `~/.codex/skills/`. Other agents that load skills (Cursor, Gemini CLI, OpenCode, Hermes Agent, OpenClaw and others): into the folder they read skills from; many read `~/.agents/skills/`.
 
-Then set your key (get it on your [HaryAI account page](https://haryai.com/en/dashboard?utm_source=github&utm_medium=readme&utm_campaign=seedance-skill)):
-
-```sh
-export HARYAI_KEY=...
-```
+Then give it your key, from your [HaryAI account page](https://haryai.com/en/dashboard?utm_source=github&utm_medium=readme&utm_campaign=seedance-skill). Desktop apps don't read `export` lines in your shell profile, so keep it where your agent keeps its settings, as `HARYAI_KEY` (Codex: `[shell_environment_policy.set]` in `~/.codex/config.toml`; Claude Code: `env` in `~/.claude/settings.json`), or save the key alone in a text file at `~/.haryai/key` (on Windows `%USERPROFILE%\.haryai\key`, with no `.txt` at the end).
 
 Node 18 or later. No other dependencies.
+
+Want images too, or the cheapest model picked for each job? The [HaryAI plugin](https://github.com/haryai-com/plugins) for Claude Code and Codex does both; this skill is the video-only one.
 
 ## Use
 
