@@ -27,7 +27,7 @@ import { pipeline } from "node:stream/promises";
 import { extname, join } from "node:path";
 
 const BASE = process.env.HARYAI_BASE_URL || "https://api.haryai.com/api/v3";
-const MODELS = { full: "dreamina-seedance-2-5-260628", flash: "dreamina-seedance-2-5-flash-261115" };
+const MODELS = { full: "doubao-seedance-2-5-260628", flash: "doubao-seedance-2-5-flash-261115" };
 // Desktop apps don't read shell profiles, so the key may also be in a file.
 const key = process.env.HARYAI_KEY || (await readFile(join(homedir(), ".haryai", "key"), "utf8").catch(() => "")).trim();
 if (!key) {
